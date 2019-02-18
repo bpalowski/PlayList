@@ -1,1 +1,12 @@
-
+#app1{
+	text-align: center;
+}
+.title{
+	
+  width: 30%;
+	display: inline-block;
+}
+#playlist{
+	width: 25%;
+	display: inline-block;
+}
