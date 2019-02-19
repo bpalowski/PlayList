@@ -1,5 +1,6 @@
 #app1{
 	text-align: center;
+
 }
 .title{
 	
@@ -9,4 +10,7 @@
 #playlist{
 	width: 25%;
 	display: inline-block;
+}
+body{
+	background-color: #1E90FF;
 }
