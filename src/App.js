@@ -12,7 +12,7 @@ const tempData = {
       {
         name: 'PlayList One',
         songs: [
-          { name: 'test1', duration: 3 },
+          { name: 'Boo Boo', duration: 3 },
           { name: 'test2', duration: 3 },
           { name: 'test3', duration: 3 },
         ],
@@ -22,7 +22,7 @@ const tempData = {
         songs: [
           { name: 'test1', duration: 3 },
           { name: 'test2', duration: 3 },
-          { name: 'test3', duration: 3 },
+          { name: 'test3', duration: 3 }
         ],
       },
       {
@@ -82,35 +82,24 @@ class Filter extends Component {
   }
 }
 class PlayList extends Component {
+
   render() {
+    let listOfPlaylist = this.props.playlist;
     return (
       <div id="playlist">
         <img />
-        <h3>PlayList Name</h3>
+        <h3>{listOfPlaylist.name}</h3>
         <ul>
-          <li>Song 1</li>
-          <li>Song 2</li>
-          <li>Song 3</li>
+          {listOfPlaylist.songs.map(song =>
+            <li>{song.name}</li>
+          )}
+
         </ul>
       </div>
     );
   }
 }
-class Counter extends Component {
-  render() {
-    return (
-      <div id="playlist">
-        <img />
-        <h3>PlayList Name</h3>
-        <ul>
-          <li>Song 1</li>
-          <li>Song 2</li>
-          <li>Song 3</li>
-        </ul>
-      </div>
-    );
-  }
-}
+
 
 class App extends Component {
   constructor() {
@@ -122,7 +111,7 @@ class App extends Component {
       this.setState({
         serverData: tempData
       })
-    }, 5000);
+    }, 2000);
 
   }
 
@@ -148,11 +137,11 @@ class App extends Component {
               <HourCounter playlists={
                 this.state.serverData.user.playlists}
               />}
-
             <Filter />
-            <PlayList />
-            <PlayList />
-            <PlayList />
+
+            {this.state.serverData.user.playlists.map(playlist =>
+              < PlayList playlist={playlist} />
+            )}
           </div > : <h1>Loading...</h1>
         }
 
